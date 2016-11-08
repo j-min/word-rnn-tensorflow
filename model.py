@@ -31,7 +31,7 @@ class Model():
         with tf.variable_scope('rnnlm'):
             softmax_w = tf.get_variable("softmax_w", [args.rnn_size, args.vocab_size])
             softmax_b = tf.get_variable("softmax_b", [args.vocab_size])
-            with tf.device('/'+self.args.instance+':0"):
+            with tf.device('/'+self.args.instance+':0'):
                 print 'run on: ' + self.args.instance
                 embedding = tf.get_variable("embedding", [args.vocab_size, args.rnn_size])
                 inputs = tf.split(1, args.seq_length, tf.nn.embedding_lookup(embedding, self.input_data))
