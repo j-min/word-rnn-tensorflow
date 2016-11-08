@@ -44,6 +44,8 @@ def main():
                                                   Note: this file contains absolute paths, be careful when moving files around;
                             'model.ckpt-*'      : file(s) with model definition (created by tf)
                         """)
+    parser.add_argument('--instance', type=str, default='cpu',
+                       help='select instance to run model (cpu or gpu)')
     args = parser.parse_args()
     train(args)
 
